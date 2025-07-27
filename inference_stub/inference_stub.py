@@ -3,6 +3,7 @@ import time
 import uuid
 from datetime import datetime, timezone
 import os
+import random
 
 LOG_FILE = "logs.jsonl"
 MODEL_NAME = "test-model"
@@ -54,7 +55,7 @@ def stub_method_for_inference():
     output_data = {
         "result": "success",
         "request_id": input_data.get("request_id", str(uuid.uuid4())),
-        "confidence": 0.95,
+        "confidence": round(random.random(), 2),
         "processed_at": datetime.now(timezone.utc).isoformat()
     }
     

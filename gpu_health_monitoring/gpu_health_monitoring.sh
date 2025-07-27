@@ -11,6 +11,11 @@
 #memory_used=${gpu_metrics[1]}
 #memory_total=${gpu_metrics[2]}
 
+# check if nvidia-smi is configured and setup
+if ! command -v nvidia-smi &> /dev/null; then
+       exit -1
+fi
+
 # Get metrics and format as JSON
 read -r -d '' json_output <<EOF
 {
