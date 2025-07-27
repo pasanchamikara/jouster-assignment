@@ -13,8 +13,7 @@ These do include the followings.
 
 3. Task 3: 
 
-Bonus Task : GPU Health Monitoring - Make sure jq is installed for json processing.
-if not 
+Bonus Task : GPU Health Monitoring - Make sure jq is installed for json processing. Otherwise, use the following commmands.
 
 ```
 sudo apt update && sudo apt install jq would install it.
@@ -41,6 +40,11 @@ python telemetry_server.py
 ``` 
 
 ### Assumptions and Design Decisions
+
+If running in a VM, GPU passthrough won't be available.
+
+#### System Diagnostic Script (diagnose.sh)
+
 There were a few assumptions and design decisions that we had to take.
 
 Some do include the followings. 
@@ -51,21 +55,30 @@ So we assume,
 3. There were instances where CUDA was not installed even if NVIDA GPUs were setup
 4. Assume that the future package versions do not change the executing bin file names
 
-#### System Diagnostic Script (diagnose.sh)
-
 #### Container Setup (run_inference_stub.sh)
+
+The required scripts are located at `inference_stub` directory.
+
+By making sure docker daemon is up and running, execure `sh run_inference_stub.sh`
+
+Which should mount input.json to the docker container which is being built.
+
+We have not used `docker-compose.yaml` in this case, but if used the process could have been simplified further.
 
 #### Structured Logging
 
 
 
-### How to expand this for real model deployment
+### How to expand this for real model deployment?
+
 For real model deployment, there are a few more concerns which would need to be addressed. Because, that would require increasing the reusability with refactoring as well as utilizing GPU for containers running models.
 
 So for containers running models, it would be required to check for the availability of NVIDIA container toolkit as well, as it would help in briding the GPU resources across docker containers.
 
 In modern cloud accelerated GPU systems, there exists more than 1 GPUs, therefore, in cases like 
 
+
+For real world production deployment, instead of the single structured dockerfiles, that we have used, make use of multi-layered dockerfiles, which would reduce the size of the docker images by a significant margin.
 
 ### Bonus Task
 

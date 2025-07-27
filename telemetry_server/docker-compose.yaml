@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  telemetry:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./input.json:/data/input/input.json
+      - ./output.json:/data/output/output.json
+      - ./logs:/data/logs
+    restart: unless-stopped
