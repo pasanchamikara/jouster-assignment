@@ -10,6 +10,7 @@ LOG_FILE = "telemetry_logs.jsonl"
 if not os.path.exists(LOG_FILE):
     with open(LOG_FILE, "w"): pass
 
+# The logs endpoint for submitting the log streams
 @app.route('/logs', methods=['POST'])
 def receive_log():
     if not request.is_json:
@@ -17,7 +18,7 @@ def receive_log():
 
     data = request.get_json()
 
-    # Basic schema validation (optional)
+    # For schema validation
     required_fields = {"timestamp", "level", "component", "message"}
     if not required_fields.issubset(data.keys()):
         return jsonify({"error": f"Missing required fields: {required_fields - data.keys()}"}), 400
