@@ -1,0 +1,11 @@
+{"timestamp": "2025-07-27T08:50:55Z", "level": "INFO", "component": "bootstrap", "message": "Starting inference stub", "model": "test-model"}
+{"timestamp": "2025-07-27T08:50:55Z", "level": "ERROR", "component": "bootstrap", "message": "Docker daemon not running", "model": "test-model"}
+{"timestamp": "2025-07-27T08:53:57Z", "level": "INFO", "component": "bootstrap", "message": "Starting inference stub", "model": "test-model"}
+{"timestamp": "2025-07-27T08:53:57Z", "level": "ERROR", "component": "bootstrap", "message": "Docker daemon not running", "model": "test-model"}
+{"timestamp": "2025-07-27T08:54:48Z", "level": "INFO", "component": "bootstrap", "message": "Starting inference stub", "model": "test-model"}
+{"timestamp": "2025-07-27T08:54:48Z", "level": "INFO", "component": "bootstrap", "message": "Building Docker image", "model": "test-model"}
+{"timestamp": "2025-07-27T08:55:02Z", "level": "INFO", "component": "bootstrap", "message": "Starting inference container", "model": "test-model"}
+{"timestamp": "2025-07-27T08:55:02Z", "level": "INFO", "component": "inference", "message": "Processing request unknown", "model": "test-model"}
+{"timestamp": "2025-07-27T08:55:02Z", "level": "INFO", "component": "inference", "message": "Starting model processing", "model": "test-model"}
+{"timestamp": "2025-07-27T08:55:03Z", "level": "INFO", "component": "inference", "message": "Model processing completed", "model": "test-model", "duration_ms": 1502}
+{"timestamp": "2025-07-27T08:55:03Z", "level": "INFO", "component": "bootstrap", "message": "Inference completed successfully", "model": "test-model"}
